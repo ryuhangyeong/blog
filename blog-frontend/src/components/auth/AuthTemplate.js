@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import { Link } from 'react-router-dom';
 
+/*
+  인증 관련 컴포넌트에서 레이아웃을 잡기 위한 템플릿 상하좌우 중앙 정렬
+ */
 const AuthTemplateBlock = styled.div`
   position: absolute;
   left: 0;
@@ -33,14 +36,16 @@ const WhiteBox = styled.div`
 `;
 
 const AuthTemplate = ({ children }) => {
-  return <AuthTemplateBlock>
-    <WhiteBox>
-      <div className="logo-area">
-        <Link to="/">REACTERS</Link>
-      </div>
-      {children}
-    </WhiteBox>
-  </AuthTemplateBlock>;
+  return (
+    <AuthTemplateBlock>
+      <WhiteBox>
+        <div className="logo-area">
+          <Link to="/">REACTERS</Link>
+        </div>
+        {children}
+      </WhiteBox>
+    </AuthTemplateBlock>
+  );
 };
 
 export default AuthTemplate;
