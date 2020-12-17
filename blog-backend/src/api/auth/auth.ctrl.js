@@ -1,4 +1,4 @@
-import Joi from '@hapi/joi';
+import Joi from '@hapi/joi'; // 검증을 위한
 import User from '../../models/user';
 
 export const register = async (ctx) => {
@@ -30,9 +30,9 @@ export const register = async (ctx) => {
     await user.setPassword(password);
     await user.save();
 
-    ctx.body = user.serialize();
+    ctx.body = user.serialize(); // 회원 가입 완료후 응답
 
-    const token = user.generateToken();
+    const token = user.generateToken(); // 토큰을 만든다.
 
     ctx.cookies.set('access_token', token, {
       maxAge: 1000 * 60 * 60 * 24 * 7, // 7일
@@ -80,16 +80,16 @@ export const login = async (ctx) => {
 };
 
 export const check = async (ctx) => {
-  const { user } = ctx.state;
+  const { user } = ctx.state; // 서버에서 user 정보 가져오기
 
   if (!user) {
     ctx.status = 401;
     return;
   }
-  ctx.body = user;
+  ctx.body = user; // 유저 있으면 유저 정보 전달
 };
 
 export const logout = async (ctx) => {
-  ctx.cookies.set('access_token');
+  ctx.cookies.set('access_token'); // 쿠키에서 access_token 정보 비우기
   ctx.status = 204;
 };

@@ -3,5 +3,5 @@
     "target": "es6",
     "module": "es2015"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"] // 자동 완성 기능을 위하여 설정
 }

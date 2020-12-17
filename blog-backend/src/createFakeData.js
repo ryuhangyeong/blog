@@ -1,5 +1,6 @@
 import Post from './models/post';
 
+// 가짜 데이터 생성기
 export default function createFakeData() {
   const posts = [...Array(40).keys(0)].map((i) => ({
     title: `포스트 #${i}`,
